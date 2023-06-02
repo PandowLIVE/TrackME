@@ -1,6 +1,7 @@
 import React from 'react';
 import { SafeAreaView, StatusBar, StyleSheet, Text } from 'react-native';
 import { Link } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 function IntroductionPage(): JSX.Element {
   return (
@@ -8,7 +9,9 @@ function IntroductionPage(): JSX.Element {
       <StatusBar barStyle={'light-content'} />
 
       <Link style={styles.navigate} to="/Login">
-        <Text>Go to Login</Text>
+        <Text>
+          <Icon name="bell" color={'red'} size={24} /> Go to Login
+        </Text>
       </Link>
       <Link style={styles.navigate} to="/Register">
         <Text>Go to Register</Text>
