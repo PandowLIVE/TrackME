@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   SafeAreaView,
   StatusBar,
@@ -10,6 +10,13 @@ import {
 
 function App(): JSX.Element {
   const [point, setPoint] = useState(0);
+
+  useEffect(() => {
+    if (point < 0) {
+      setPoint(100);
+    }
+  }, [point]);
+
   return (
     <SafeAreaView>
       <StatusBar barStyle={'light-content'} />
@@ -24,9 +31,22 @@ function App(): JSX.Element {
           setPoint(point + 1);
         }}
       >
-        <Text style={{ color: 'white' }}>AHHH DU BLEU !!!!!!</Text>
+        <Text style={{ color: 'white' }}>+1</Text>
       </TouchableOpacity>
-      <Text>{point}</Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          setPoint(point - 5);
+        }}
+      >
+        <Text style={{ color: 'white' }}>-5</Text>
+      </TouchableOpacity>
+      <Text>Tu as {point} points</Text>
+      <Text>
+        {point > 200
+          ? 'Tu es riche ma gueule !'
+          : 'Va faire la manche sale pauvre !'}
+      </Text>
     </SafeAreaView>
   );
 }
@@ -34,18 +54,21 @@ function App(): JSX.Element {
 const styles = StyleSheet.create({
   button: {
     backgroundColor: 'red',
-    padding: 50,
+    padding: '5%',
+    fontWeight: 'bold',
   },
 
   sectionTitle: {
     color: 'red',
+    fontWeight: 'bold',
     textDecorationLine: 'underline',
   },
 
   viewBorder: {
     borderColor: 'pink',
-    borderWidth: 3,
-    width: 300,
+    borderWidth: 10,
+    fontWeight: 'bold',
+    width: '25%',
   },
 });
 
