@@ -28,20 +28,23 @@ function App(): JSX.Element {
             uri: 'https://pandowlive.fr/assets/img/1.png',
           }}
         />
+        <View style={styles.hr}></View>
         <Text style={styles.text}>Best Hide and Seek application</Text>
         <Text>{point}</Text>
         <View>
           <TextInput style={styles.input} placeholder="Insert your username" />
         </View>
-        <View style={styles.bottomView}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => {
-              setPoint(point + 1);
-            }}
-          >
-            <Text style={styles.textStyle}>Next</Text>
-          </TouchableOpacity>
+        <View style={styles.footer}>
+          <View style={styles.bottomView}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
+                setPoint(point + 1);
+              }}
+            >
+              <Text style={styles.textStyle}>Next</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </SafeAreaView>
@@ -50,12 +53,28 @@ function App(): JSX.Element {
 
 const styles = StyleSheet.create({
   containerMain: {
+    backgroundColor: '#F2FCF8',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
   bottomView: {
-    width: '93%',
+    width: '85%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute', //Here is the trick
+    bottom: 0, //Here is the trick
+  },
+  hr: {
+    borderColor: '#00C27C',
+    borderWidth: 2.5,
+    borderStartWidth: 50,
+    marginVertical: 15,
+    borderRadius: 50,
+  },
+  footer: {
+    backgroundColor: 'white',
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute', //Here is the trick
@@ -70,7 +89,7 @@ const styles = StyleSheet.create({
     position: 'absolute', //Here is the trick
     bottom: 0, //Here is the trick
     borderRadius: 10,
-    margin: 10,
+    margin: 15,
   },
   input: {
     width: 335,
@@ -106,4 +125,3 @@ const styles = StyleSheet.create({
 });
 
 export default App;
-
