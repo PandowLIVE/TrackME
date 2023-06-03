@@ -11,7 +11,12 @@ const Stack = createStackNavigator();
 function App(): JSX.Element {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Introduction">
+      <Stack.Navigator
+        initialRouteName="Introduction"
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
         <Stack.Screen name="Introduction" component={IntroductionPage} />
         <Stack.Screen name="Login" component={LoginPage} />
         <Stack.Screen name="Register" component={RegisterPage} />
@@ -21,4 +26,3 @@ function App(): JSX.Element {
 }
 
 export default App;
-
