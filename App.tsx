@@ -5,6 +5,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -28,8 +29,13 @@ function App(): JSX.Element {
           }}
         />
         <Text style={styles.text}>Best Hide and Seek application</Text>
+        <View>
+          <TextInput style={styles.input} placeholder="Insert your username" />
+        </View>
         <View style={styles.bottomView}>
-          <Text style={styles.textStyle}>Next</Text>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.textStyle}>Next</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>
@@ -44,6 +50,13 @@ const styles = StyleSheet.create({
   },
   bottomView: {
     width: '93%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute', //Here is the trick
+    bottom: 0, //Here is the trick
+  },
+  button: {
+    width: '100%',
     height: 50,
     backgroundColor: '#00C27C',
     justifyContent: 'center',
@@ -51,6 +64,19 @@ const styles = StyleSheet.create({
     position: 'absolute', //Here is the trick
     bottom: 0, //Here is the trick
     borderRadius: 10,
+    margin: 15,
+  },
+  input: {
+    width: 335,
+    height: 50,
+    backgroundColor: 'white',
+    color: 'black',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    borderRadius: 10,
+    borderColor: '#D9D9D9',
+    borderWidth: 1,
     margin: 15,
   },
   textStyle: {
