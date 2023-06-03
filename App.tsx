@@ -29,11 +29,17 @@ function App(): JSX.Element {
           }}
         />
         <Text style={styles.text}>Best Hide and Seek application</Text>
+        <Text>{point}</Text>
         <View>
           <TextInput style={styles.input} placeholder="Insert your username" />
         </View>
         <View style={styles.bottomView}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              setPoint(point + 1);
+            }}
+          >
             <Text style={styles.textStyle}>Next</Text>
           </TouchableOpacity>
         </View>
@@ -64,7 +70,7 @@ const styles = StyleSheet.create({
     position: 'absolute', //Here is the trick
     bottom: 0, //Here is the trick
     borderRadius: 10,
-    margin: 15,
+    margin: 10,
   },
   input: {
     width: 335,
