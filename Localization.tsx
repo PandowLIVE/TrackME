@@ -25,15 +25,12 @@ function App(): JSX.Element {
         <Image
           style={styles.tinyLogo}
           source={{
-            uri: 'https://pandowlive.fr/assets/img/1.png',
+            uri: 'https://pandowlive.fr/assets/img/2.png',
           }}
         />
         <View style={styles.hr}></View>
         <Text style={styles.text}>Best Hide and Seek application</Text>
-        <Text>{point}</Text>
-        <View>
-          <TextInput style={styles.input} placeholder="Insert your username" />
-        </View>
+        <Text>To do this we need the location of all the particiapnts !</Text>
         <View style={styles.footer}>
           <View style={styles.bottomView}>
             <TouchableOpacity
@@ -115,8 +112,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   tinyLogo: {
-    width: 408,
-    height: 408,
+    width: 461,
+    height: 541,
   },
   logo: {
     width: 66,
