@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import {
   Image,
   SafeAreaView,
@@ -32,22 +31,18 @@ function IntroductionPage(): JSX.Element {
         />
         <View style={styles.hr}></View>
         <Text style={styles.text}>Best Hide and Seek application</Text>
-        <Text>{point}</Text>
         <View>
           <TextInput style={styles.input} placeholder="Insert your username" />
         </View>
         <View style={styles.footer}>
           <View style={styles.bottomView}>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => {
-                setPoint(point + 1);
-              }}
-            >
-              <Link style={styles.text} to="/Register">
-                <Text>Go to Register</Text>
-              </Link>
-            </TouchableOpacity>
+            <Link style={styles.button} to="/Register">
+              <TouchableOpacity style={styles.button}>
+                <Link to="/Register">
+                  <Text style={styles.textStyle}>Next</Text>
+                </Link>
+              </TouchableOpacity>
+            </Link>
           </View>
         </View>
       </View>
@@ -90,10 +85,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#00C27C',
     justifyContent: 'center',
     alignItems: 'center',
+    textAlign: 'center',
     position: 'absolute', //Here is the trick
     bottom: 0, //Here is the trick
     borderRadius: 10,
-    margin: 15,
+    margin: 27,
   },
   input: {
     width: 335,
@@ -111,6 +107,7 @@ const styles = StyleSheet.create({
   textStyle: {
     color: '#fff',
     fontSize: 18,
+    textAlign: 'center',
   },
   text: {
     color: '#000000',
