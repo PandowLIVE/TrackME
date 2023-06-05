@@ -29,12 +29,15 @@ function IntroductionPage(): JSX.Element {
             uri: 'https://pandowlive.fr/assets/img/1.png',
           }}
         />
-        <View style={styles.hr}></View>
-        <Text style={styles.text}>Best Hide and Seek application</Text>
-        <View>
-          <TextInput style={styles.input} placeholder="Insert your username" />
-        </View>
         <View style={styles.footer}>
+          <View style={styles.hr}></View>
+          <Text style={styles.text}>Best Hide and Seek application</Text>
+          <View>
+            <TextInput
+              style={styles.input}
+              placeholder="Insert your username"
+            />
+          </View>
           <View style={styles.bottomView}>
             <Link style={styles.button} to="/Register">
               <TouchableOpacity style={styles.button}>
@@ -65,24 +68,28 @@ const styles = StyleSheet.create({
     bottom: 0, //Here is the trick
   },
   hr: {
-    borderColor: '#00C27C',
+    borderColor: '#6AB04C',
     borderWidth: 2.5,
     borderStartWidth: 150,
-    marginVertical: 15,
+    marginBottom: 15,
     borderRadius: 50,
   },
   footer: {
+    minHeight: '45%',
+    height: '45%',
     backgroundColor: 'white',
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute', //Here is the trick
     bottom: 0, //Here is the trick
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
   },
   button: {
     width: '100%',
     height: 50,
-    backgroundColor: '#00C27C',
+    backgroundColor: '#6AB04C',
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
@@ -116,6 +123,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   tinyLogo: {
+    marginBottom: '75%',
     width: 408,
     height: 408,
   },

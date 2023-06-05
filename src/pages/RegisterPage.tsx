@@ -29,12 +29,12 @@ function IntroductionPage(): JSX.Element {
             uri: 'https://pandowlive.fr/assets/img/2.png',
           }}
         />
-        <View style={styles.hr}></View>
-        <Text style={styles.text}>Track your opponents wherever they are!</Text>
-        <Text style={styles.margin}>
-          To do this we need the location of all the participants!
-        </Text>
         <View style={styles.footer}>
+          <View style={styles.hr}></View>
+          <Text style={styles.text}>
+            Track your opponents wherever they are!
+          </Text>
+          <Text>To do this we need the location of all the participants!</Text>
           <View style={styles.bottomView}>
             <Link style={styles.button} to="/Introduction">
               <TouchableOpacity style={styles.button}>
@@ -65,27 +65,28 @@ const styles = StyleSheet.create({
     bottom: 0, //Here is the trick
   },
   hr: {
-    borderColor: '#00C27C',
+    borderColor: '#6AB04C',
     borderWidth: 2.5,
     borderStartWidth: 150,
-    marginVertical: 33,
+    marginBottom: 15,
     borderRadius: 50,
   },
-  margin: {
-    marginVertical: 40,
-  },
   footer: {
+    minHeight: '45%',
+    height: '45%',
     backgroundColor: 'white',
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute', //Here is the trick
     bottom: 0, //Here is the trick
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
   },
   button: {
     width: '100%',
     height: 50,
-    backgroundColor: '#ffb22c',
+    backgroundColor: '#6AB04C',
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
@@ -119,6 +120,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   tinyLogo: {
+    marginBottom: '75%',
     width: 300,
     height: 355,
   },
