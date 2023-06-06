@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Keyboard, Image } from 'react-native';
+import { StyleSheet, Keyboard, Image, View } from 'react-native';
 
 interface Props {
   step: number;
@@ -38,10 +38,18 @@ const IntroImage: React.FC<Props> = ({ step }) => {
   }, []);
 
   if (!keyboardVisible)
-    return <Image style={styles.logo} source={imageSource} />;
+    return (
+      <View style={styles.container}>
+        <Image style={styles.logo} source={imageSource} />
+      </View>
+    );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    height: '55%',
+    justifyContent: 'center',
+  },
   logo: {
     width: 250,
     height: 300,
