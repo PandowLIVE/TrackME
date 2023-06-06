@@ -1,14 +1,16 @@
 import React from 'react';
 import { Link } from '@react-navigation/native';
+import { COLORS } from '../utils/utils';
 import { SafeAreaView, StatusBar, StyleSheet, Text } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 function RegisterPage(): JSX.Element {
   return (
     <SafeAreaView>
-      <StatusBar barStyle={'light-content'} />
-      <Link to="/Login">
-        <Text>Go to Login</Text>
+      <Link to="/Introduction">
+        <Icon name="chevron-left" color={COLORS['text-dark']} size={24} />
       </Link>
+      <Text>Game configuration</Text>
     </SafeAreaView>
   );
 }
