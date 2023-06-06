@@ -75,7 +75,10 @@ const IntroBody: React.FC<Props> = ({
       if (Object.keys(localisation).length !== 0) {
         setStep(2);
         setButtonText('Create Party');
-      } else TrackLocation();
+      } else {
+        setButtonText('Location recovery...');
+        TrackLocation();
+      }
     } else if (step === 2) SubmitIntroduction(option);
   }
 

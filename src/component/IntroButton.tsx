@@ -13,7 +13,10 @@ const IntroButton: React.FC<Props> = ({ title, cb }) => {
     <TouchableOpacity
       style={[
         styles.button,
-        title === 'Authorize location' && { backgroundColor: COLORS.orange },
+        (title === 'Authorize location' ||
+          title === 'Location recovery...') && {
+          backgroundColor: COLORS.orange,
+        },
       ]}
       activeOpacity={0.8}
       onPress={() => cb()}
