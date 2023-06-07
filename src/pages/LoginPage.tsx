@@ -1,18 +1,23 @@
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  Dimensions,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { Link } from '@react-navigation/native';
-import { COLORS } from '../utils/utils';
 import Icon from 'react-native-vector-icons/FontAwesome';
+
+import { COLORS } from '../utils/utils';
 import IntroButton from '../component/IntroButton';
+import LoginInputCode from '../component/LoginInputCode';
 
 function LoginPage(): JSX.Element {
+  const [code, setCode] = useState('');
+  const [focus, setFocus] = useState(0);
+
+  useEffect(() => {
+    const CleanCode = code.replace(/[^0-9]/g, '');
+    setCode(CleanCode);
+
+    setFocus(CleanCode.length);
+  }, [code]);
+
   return (
     <SafeAreaView style={styles.body}>
       <View>
@@ -28,19 +33,29 @@ function LoginPage(): JSX.Element {
           Ask your friends for invitation code.
         </Text>
         <View style={styles.inputs}>
-          <TextInput style={styles.input} keyboardType="numeric" />
-          <TextInput style={styles.input} keyboardType="numeric" />
-          <TextInput style={styles.input} keyboardType="numeric" />
-          <TextInput style={styles.input} keyboardType="numeric" />
+          {[0, 1, 2, 3].map((i) => (
+            <LoginInputCode
+              key={i}
+              _index={i}
+              _focus={focus}
+              code={code}
+              setCode={setCode}
+            />
+          ))}
         </View>
       </View>
 
-      <IntroButton title={'Verify'} cb={() => {}} />
+      <IntroButton
+        title={code.length === 4 ? 'Verify' : 'Complite Code'}
+        enable={code.length === 4}
+        cb={() => {
+          /* GO TO NEXT PAGE */
+        }}
+      />
     </SafeAreaView>
   );
 }
 
-const windowWidth = Dimensions.get('window').width;
 const styles = StyleSheet.create({
   body: {
     width: '100%',
@@ -75,18 +90,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: '100%',
     marginTop: 50,
-  },
-
-  input: {
-    width: (windowWidth - 40) / 4 - 20,
-    height: (windowWidth - 40) / 4 - 20,
-    backgroundColor: COLORS.white,
-    color: COLORS['text-dark'],
-    textAlign: 'center',
-
-    borderWidth: 1,
-    borderRadius: 10,
-    borderColor: COLORS['text-gray'],
   },
 });
 
