@@ -89,7 +89,14 @@ const IntroBody: React.FC<Props> = ({
 
       {InputElement()}
 
-      <IntroButton title={buttonText} cb={buttonEffect} />
+      <IntroButton
+        title={buttonText}
+        enable={
+          buttonText !== 'Authorize location' &&
+          buttonText !== 'Location recovery...'
+        }
+        cb={buttonEffect}
+      />
     </View>
   );
 };
