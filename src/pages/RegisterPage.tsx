@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from '@react-navigation/native';
 import { COLORS } from '../utils/utils';
-import { SafeAreaView, StatusBar, StyleSheet, Text } from 'react-native';
+import { SafeAreaView, StyleSheet, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 function RegisterPage(): JSX.Element {
