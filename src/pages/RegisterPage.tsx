@@ -14,7 +14,7 @@ import {
 
 type RootStackParamList = {
   Register: undefined;
-  WaithingRoom: undefined;
+  WaitingRoom: undefined;
 };
 
 type NavigationProp = StackNavigationProp<RootStackParamList, 'Register'>;
@@ -24,7 +24,7 @@ function RegisterPage(): JSX.Element {
   const [options, setOptions] = useState({ gamemode: 0, finder: 0 });
 
   function submitRestAPI() {
-    navigation.navigate('WaithingRoom');
+    navigation.navigate('WaitingRoom');
   }
 
   return (
@@ -33,7 +33,7 @@ function RegisterPage(): JSX.Element {
         <Link to="/Introduction">
           <Icon name="chevron-left" color={COLORS['text-dark']} size={24} />
         </Link>
-        <Text style={styles.pageTitle}>Join game</Text>
+        <Text style={styles.pageTitle}>Game Configuration</Text>
         <View style={{ width: 24 }}></View>
       </View>
 

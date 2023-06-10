@@ -10,7 +10,7 @@ import LoginInputCode from '../component/LoginInputCode';
 
 type RootStackParamList = {
   Login: undefined;
-  WaithingRoom: undefined;
+  WaitingRoom: undefined;
 };
 
 type NavigationProp = StackNavigationProp<RootStackParamList, 'Login'>;
@@ -28,7 +28,7 @@ function LoginPage(): JSX.Element {
   }, [code]);
 
   function submitRestAPI() {
-    navigation.navigate('WaithingRoom');
+    navigation.navigate('WaitingRoom');
   }
 
   return (
