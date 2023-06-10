@@ -26,7 +26,9 @@ function WaitingRoom(): JSX.Element {
         </Link>
         <Text style={styles.pageTitle}>Waiting room</Text>
         <View style={{ width: 24 }}></View>
+        <Text style={styles.description}>Party invitation code</Text>
       </View>
+
       <WaitingSection />
       <WaitingSection />
       <WaitingSection />
