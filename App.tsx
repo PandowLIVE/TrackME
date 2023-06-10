@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import IntroductionPage from './src/pages/IntroductionPage';
 import LoginPage from './src/pages/LoginPage';
 import RegisterPage from './src/pages/RegisterPage';
+import WaithingRoom from './src/pages/WaithingRoom';
 
 const Stack = createStackNavigator();
 
@@ -20,9 +21,12 @@ function App(): JSX.Element {
         <Stack.Screen name="Introduction" component={IntroductionPage} />
         <Stack.Screen name="Login" component={LoginPage} />
         <Stack.Screen name="Register" component={RegisterPage} />
+
+        <Stack.Screen name="WaithingRoom" component={WaithingRoom} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
 export default App;
+

@@ -5,16 +5,16 @@ import { COLORS } from '../utils/utils';
 
 interface Props {
   title: string;
+  enable?: boolean;
   cb: () => void;
 }
 
-const IntroButton: React.FC<Props> = ({ title, cb }) => {
+const IntroButton: React.FC<Props> = ({ title, cb, enable = true }) => {
   return (
     <TouchableOpacity
       style={[
         styles.button,
-        (title === 'Authorize location' ||
-          title === 'Location recovery...') && {
+        enable === false && {
           backgroundColor: COLORS.orange,
         },
       ]}
