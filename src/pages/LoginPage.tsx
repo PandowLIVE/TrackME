@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import { Link } from '@react-navigation/native';
+import { useNavigation, Link } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { COLORS } from '../utils/utils';
 import IntroButton from '../component/IntroButton';
 import LoginInputCode from '../component/LoginInputCode';
 
+type RootStackParamList = {
+  Login: undefined;
+  WaithingRoom: undefined;
+};
+
+type NavigationProp = StackNavigationProp<RootStackParamList, 'Login'>;
+
 function LoginPage(): JSX.Element {
+  const navigation = useNavigation<NavigationProp>();
   const [code, setCode] = useState('');
   const [focus, setFocus] = useState(0);
 
@@ -17,6 +26,10 @@ function LoginPage(): JSX.Element {
 
     setFocus(CleanCode.length);
   }, [code]);
+
+  function submitRestAPI() {
+    navigation.navigate('WaithingRoom');
+  }
 
   return (
     <SafeAreaView style={styles.body}>
@@ -48,9 +61,7 @@ function LoginPage(): JSX.Element {
       <IntroButton
         title={code.length === 4 ? 'Verify' : 'Complite Code'}
         enable={code.length === 4}
-        cb={() => {
-          /* GO TO NEXT PAGE */
-        }}
+        cb={submitRestAPI}
       />
     </SafeAreaView>
   );
