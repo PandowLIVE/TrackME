@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { SafeAreaView, StyleSheet, ScrollView, Text, View } from 'react-native';
 import { useNavigation, Link } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import RegisterSection from '../component/RegisterSection';
 
 import { COLORS } from '../utils/utils';
 import WaitingSection from '../component/WaitingSection';
+import IntroButton from '../component/IntroButton';
 
 type RootStackParamList = {
   Login: undefined;
@@ -26,12 +26,23 @@ function WaitingRoom(): JSX.Element {
         </Link>
         <Text style={styles.pageTitle}>Waiting room</Text>
         <View style={{ width: 24 }}></View>
-        <Text style={styles.description}>Party invitation code</Text>
       </View>
 
-      <WaitingSection />
-      <WaitingSection />
-      <WaitingSection />
+      <ScrollView>
+        <View style={styles.codeSection}>
+          <Text style={styles.description}>Party invitation code</Text>
+          <View style={styles.codeView}>
+            <Text style={styles.codeText}>2569</Text>
+          </View>
+        </View>
+
+        <Text style={styles.description}>Player List</Text>
+        <WaitingSection pseudo="BowEnder" distance={0} precision={9} />
+        <WaitingSection pseudo="Pandow" distance={23} precision={1} />
+        <WaitingSection pseudo="Jacky" distance={1993} precision={4} />
+      </ScrollView>
+
+      <IntroButton title="[0/2] Players ready" enable={false} cb={() => null} />
     </SafeAreaView>
   );
 }
@@ -60,6 +71,24 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginBottom: 5,
   },
+  codeSection: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 15,
+  },
+  codeView: {
+    backgroundColor: '#6AB04C1A',
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    borderRadius: 15,
+  },
+  codeText: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    color: COLORS.green,
+  },
 });
 
 export default WaitingRoom;
+
