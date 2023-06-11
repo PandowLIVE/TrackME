@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   selected: {
-    backgroundColor: '#00C27C1A',
+    backgroundColor: '#6AB04C1A',
     borderColor: COLORS.green,
     borderWidth: 1,
     padding: 9,
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#00C27C1A',
+    backgroundColor: '#6AB04C1A',
     borderRadius: 100,
   },
   title: {
