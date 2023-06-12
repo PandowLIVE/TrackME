@@ -1,35 +1,52 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View, Text } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { COLORS } from '../utils/utils';
 
+type Information = {
+  title: string;
+  value: string;
+};
 interface Props {
   pseudo: string;
-  zone: number;
-  temperature: number;
+  isFound?: boolean;
+  informations: Information[];
 }
 
-const GameSection: React.FC<Props> = ({ pseudo, zone, temperature }) => {
+const GameSection: React.FC<Props> = ({
+  pseudo,
+  isFound = false,
+  informations,
+}) => {
   return (
     <View style={styles.view}>
-      <View>
+      <View style={{ alignItems: 'center' }}>
         <View style={styles.iconShadow}>
-          <Icon name="user" color={COLORS.white} size={35} />
+          <Icon name="user" color={COLORS.white} size={30} />
         </View>
-        <View style={styles.borderDot}></View>
-        <Icon
-          style={styles.icon}
-          name="caret-up"
-          color={COLORS['green']}
-          size={50}
-        />
+        <View
+          style={[
+            styles.borderDot,
+            {
+              height: 20 + 40 * informations.length,
+            },
+          ]}
+        ></View>
+        <Icon name="caret-up" color={COLORS['green']} size={40} />
       </View>
-      <View>
-        <Text>{pseudo}</Text>
-        <Text>Hidden / Seeker</Text>
-        <Text>Map zone {zone}m</Text>
-        <Text>Temperature {temperature}°C</Text>
+      <View style={styles.datas}>
+        <Text style={[styles.pseudoText, styles.rowText]}>{pseudo}</Text>
+        <Text style={[styles.statusText, styles.rowText]}>
+          {isFound ? 'Found' : 'Hidden'}
+        </Text>
+
+        {informations.map((info, i) => (
+          <View key={i} style={styles.rowText}>
+            <Text>{info.title}</Text>
+            <Text style={{ fontWeight: 'bold' }}>{info.value}</Text>
+          </View>
+        ))}
       </View>
     </View>
   );
@@ -37,21 +54,19 @@ const GameSection: React.FC<Props> = ({ pseudo, zone, temperature }) => {
 
 const styles = StyleSheet.create({
   view: {
-    width: '100%',
     flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'space-evenly',
-    padding: 15,
     backgroundColor: 'white',
-    maxHeight: 200,
+    padding: 15,
+    minHeight: 130,
+  },
+  datas: {
+    width: '70%',
   },
   borderDot: {
-    borderLeftColor: COLORS.green,
+    borderLeftColor: COLORS.orange,
     borderStyle: 'dashed',
     borderLeftWidth: 1.5,
-    height: '30%',
-    marginHorizontal: '17.5%',
-    marginVertical: 5,
   },
   iconShadow: {
     width: 50,
@@ -61,9 +76,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#6AB04C',
     borderRadius: 100,
   },
-  icon: {
-    marginLeft: 11,
+  pseudoText: {
+    fontSize: 19,
+    color: COLORS['text-dark'],
+  },
+  statusText: {
+    fontSize: 19,
+    color: COLORS['text-dark'],
+    fontWeight: 'bold',
+  },
+  rowText: {
+    width: '100%',
+    flexDirection: 'row',
+    marginVertical: 10,
+    justifyContent: 'space-between',
   },
 });
 
 export default GameSection;
+

@@ -31,7 +31,13 @@ function Game(): JSX.Element {
         <View style={styles.bottomSection}>
           <Text style={styles.viewTitle}>Test</Text>
         </View>
-        <GameSection pseudo={'PandowLIVE'} zone={500} temperature={20} />
+        <GameSection
+          pseudo={'PandowLIVE'}
+          informations={[
+            { title: 'Zonne', value: '105m' },
+            { title: 'Temperature', value: '20°' },
+          ]}
+        />
       </ScrollView>
     </SafeAreaView>
   );
@@ -82,3 +88,4 @@ const styles = StyleSheet.create({
 });
 
 export default Game;
+
