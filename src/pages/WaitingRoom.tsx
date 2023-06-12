@@ -22,7 +22,7 @@ function WaitingRoom(): JSX.Element {
     <SafeAreaView style={styles.body}>
       <View style={styles.header}>
         <Link to="/Register">
-          <Icon name="chevron-left" color={COLORS['text-dark']} size={24} />
+          <Icon name="pencil" color={COLORS['text-dark']} size={24} />
         </Link>
         <Text style={styles.pageTitle}>Waiting room</Text>
         <View style={{ width: 24 }}></View>
@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 15,
     borderRadius: 15,
+    marginTop: 15,
   },
   codeText: {
     fontSize: 25,
@@ -91,4 +92,3 @@ const styles = StyleSheet.create({
 });
 
 export default WaitingRoom;
-
