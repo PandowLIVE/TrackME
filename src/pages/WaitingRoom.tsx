@@ -11,9 +11,10 @@ import IntroButton from '../component/IntroButton';
 type RootStackParamList = {
   Login: undefined;
   WaitingRoom: undefined;
+  Game: undefined;
 };
 
-type NavigationProp = StackNavigationProp<RootStackParamList, 'Login'>;
+type NavigationProp = StackNavigationProp<RootStackParamList, 'WaitingRoom'>;
 
 function WaitingRoom(): JSX.Element {
   const navigation = useNavigation<NavigationProp>();
@@ -42,7 +43,11 @@ function WaitingRoom(): JSX.Element {
         <WaitingSection pseudo="Jacky" distance={1993} precision={4} />
       </ScrollView>
 
-      <IntroButton title="[0/2] Players ready" enable={false} cb={() => null} />
+      <IntroButton
+        title="[0/2] Players ready"
+        enable={false}
+        cb={() => navigation.navigate('Game')}
+      />
     </SafeAreaView>
   );
 }

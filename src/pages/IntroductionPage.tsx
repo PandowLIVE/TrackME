@@ -3,8 +3,8 @@ import { SafeAreaView, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import Geolocation from '@react-native-community/geolocation';
-import IntroBody from '../component/IntroBody';
 
+import IntroBody from '../component/IntroBody';
 import { COLORS } from '../utils/utils';
 import IntroImage from '../component/IntroImage';
 
