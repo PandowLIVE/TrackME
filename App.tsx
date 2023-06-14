@@ -7,6 +7,7 @@ import LoginPage from './src/pages/LoginPage';
 import RegisterPage from './src/pages/RegisterPage';
 import WaitingRoom from './src/pages/WaitingRoom';
 import Game from './src/pages/Game';
+import SeekerAdvantages from './src/pages/SeekerAdvantages';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,7 @@ function App(): JSX.Element {
         <Stack.Screen name="Login" component={LoginPage} />
         <Stack.Screen name="Register" component={RegisterPage} />
         <Stack.Screen name="Game" component={Game} />
+        <Stack.Screen name="Advantages" component={SeekerAdvantages} />
 
         <Stack.Screen name="WaitingRoom" component={WaitingRoom} />
       </Stack.Navigator>

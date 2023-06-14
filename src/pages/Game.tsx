@@ -10,6 +10,7 @@ import GameSection from '../component/GameSection';
 
 type RootStackParamList = {
   Game: undefined;
+  Advantages: undefined;
 };
 
 type NavigationProp = StackNavigationProp<RootStackParamList, 'Game'>;
@@ -20,16 +21,30 @@ function Game(): JSX.Element {
   return (
     <SafeAreaView style={styles.body}>
       <View style={styles.header}>
-        <Link to="/WaitingRoom">
-          <Icon name="chevron-left" color={COLORS['text-dark']} size={24} />
-        </Link>
+        <View style={{ width: 24 }}></View>
         <Text style={styles.pageTitle}>Game</Text>
         <View style={{ width: 24 }}></View>
       </View>
       <View style={styles.map}></View>
       <ScrollView>
         <View style={styles.bottomSection}>
-          <Text style={styles.viewTitle}>Test</Text>
+          <View style={styles.iconShadow}>
+            <Icon name="user" color={COLORS.green} size={30} />
+          </View>
+          <View style={styles.viewBottom}>
+            <Text style={styles.viewTitle}>BowEnder</Text>
+            <Text style={styles.description}>0/10 Joueurs found</Text>
+          </View>
+          <View style={styles.row}>
+            <View style={styles.iconShadow}>
+              <Icon name="plus" color={COLORS.green} size={24} />
+            </View>
+            <Link to="/Advantages">
+              <View style={styles.iconShadow}>
+                <Icon name="chevron-right" color={COLORS.green} size={24} />
+              </View>
+            </Link>
+          </View>
         </View>
         <GameSection
           pseudo={'PandowLIVE'}
@@ -60,15 +75,19 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 18,
   },
+  row: {
+    flexDirection: 'row',
+    paddingHorizontal: 20,
+    justifyContent: 'space-between',
+  },
   viewTitle: {
     color: COLORS.white,
     fontWeight: 'bold',
     fontSize: 18,
   },
   description: {
-    color: COLORS['text-gray'],
+    color: COLORS.white,
     fontSize: 16,
-    marginTop: 15,
     marginBottom: 5,
   },
   map: {
@@ -79,13 +98,25 @@ const styles = StyleSheet.create({
   bottomSection: {
     backgroundColor: COLORS.green,
     width: '100%',
+    flexDirection: 'row',
     borderTopEndRadius: 20,
     borderTopStartRadius: 20,
     marginTop: 10,
     padding: 20,
     bottom: 0,
   },
+  iconShadow: {
+    width: 50,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: COLORS.white,
+    borderRadius: 100,
+    marginHorizontal: 5,
+  },
+  viewBottom: {
+    marginHorizontal: 20,
+  },
 });
 
 export default Game;
-
